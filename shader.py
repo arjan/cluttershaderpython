@@ -6,13 +6,13 @@ class Test:
     def __init__(self):
         self.stage = Clutter.Stage()
 
-        r = Clutter.Texture.new_from_file("/home/arjan/Desktop/arjan.jpg")
+        r = Clutter.Texture.new_from_file("test.jpg")
         r.set_size(640, 480)
         self.stage.add_actor(r)
         shader = Clutter.Shader()
         source = open(__file__.replace(".py", ".glsl"), "r").read()
         shader.set_fragment_source(source, len(source))
-        shader.set_uniform("image", 0)
+        #shader.set_uniform("image", 0) # warning?
         r.set_shader(shader)
         self.stage.show()
 
